@@ -10,4 +10,10 @@ export interface BuildOptions {
     mode: BuildType;
     paths:BuildPaths;
     isDev: boolean;
+    port: number;
+}
+
+export interface BuildEnv {
+    mode: BuildType;
+    port: number;
 }
