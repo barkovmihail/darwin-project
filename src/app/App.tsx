@@ -8,15 +8,15 @@ import {useTheme} from "./providers/ThemeProvider";
 import {AboutPage} from "pages/AboutPage";
 import { MainPage } from 'pages/MainPage';
 import {AppRouter} from "app/providers/router";
+import {Navbar} from "widgets/Navbar";
 
 const App = () => {
     const { theme, toggleTheme } = useTheme();
 
     return (
         <div className={classNames('app', {}, [theme])} >
+            <Navbar/>
             <button onClick={toggleTheme}>TOGGLE</button>
-            <Link to={'/'}>Main</Link>
-            <Link to={'/about'}>About</Link>
             <AppRouter />
         </div>
     );
