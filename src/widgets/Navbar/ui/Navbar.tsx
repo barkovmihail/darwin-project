@@ -1,21 +1,21 @@
-import React, {FC} from 'react';
-import {classNames} from "shared/lib/classNames/classNames";
+import React, { FC } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import cls from './Navbar.module.scss';
-import {AppLink, AppLinkTheme} from "shared/ui/AppLink/AppLink";
-import {ThemeSwitcher} from "shared/ui/ThemeSwitcher";
 
 interface NavbarProps {
     className?: string;
 }
 
-export const Navbar: FC<NavbarProps>= (props: NavbarProps) => {
+export const Navbar: FC<NavbarProps> = (props: NavbarProps) => {
     const { className } = props;
 
     return (
-        <div className={classNames(cls.navbar, {}, [className ])}>
+        <div className={classNames(cls.navbar, {}, [className])}>
             <div className={cls.links}>
-                <AppLink to={'/'} className={cls.mainLink} theme={AppLinkTheme.INVERTED}>Main</AppLink>
-                <AppLink to={'/about'} theme={AppLinkTheme.INVERTED}>About</AppLink>
+                <AppLink to="/" className={cls.mainLink} theme={AppLinkTheme.INVERTED}>Main</AppLink>
+                <AppLink to="/about" theme={AppLinkTheme.INVERTED}>About</AppLink>
             </div>
         </div>
     );

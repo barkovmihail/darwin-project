@@ -1,10 +1,10 @@
 import { Theme } from 'app/providers/ThemeProvider';
-import React, {ButtonHTMLAttributes, FC, HTMLAttributes} from 'react';
-import {classNames} from "shared/lib/classNames/classNames";
+import React, { ButtonHTMLAttributes, FC, HTMLAttributes } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ThemeButton {
-    UNSTYLED  = 'unstyled'
+    UNSTYLED = 'unstyled'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement >{
@@ -12,7 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement >{
     theme?: ThemeButton;
 }
 
-export const Button: FC<ButtonProps>= (props: ButtonProps) => {
+export const Button: FC<ButtonProps> = (props: ButtonProps) => {
     const {
         className,
         children,
@@ -22,6 +22,7 @@ export const Button: FC<ButtonProps>= (props: ButtonProps) => {
 
     return (
         <button
+            type="button"
             className={classNames(cls.button, {}, [className, cls[theme]])}
             {...otherProps}
         >
