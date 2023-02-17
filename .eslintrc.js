@@ -10,8 +10,6 @@ module.exports = {
         'plugin:i18next/recommended',
     ],
     parser: '@typescript-eslint/parser',
-    overrides: [
-    ],
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
@@ -47,7 +45,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid'],
+                ignoreAttribute: ['data-testid', 'to'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 100 }],
