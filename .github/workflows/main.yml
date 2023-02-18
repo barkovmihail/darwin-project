@@ -31,4 +31,3 @@ jobs:
         run: npm run build-storybook
       - name: screenshot testing
         run: npm run test:ui:ci
-
