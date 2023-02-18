@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button, ThemeButton } from './Button';
 import 'app/styles/index.scss';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator';
+// eslint-disable-next-line import/order
 import { Theme } from 'app/providers/ThemeProvider';
 
 export default {
