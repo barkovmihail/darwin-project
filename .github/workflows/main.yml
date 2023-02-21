@@ -6,10 +6,11 @@ on:
     branches: [ main ]
 jobs:
   pipeline:
-    runs-on: [windows-2019]
     strategy:
       matrix:
         node-version: [17.x]
+        os: [ubuntu-latest, windows-2019]
+    runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v2
