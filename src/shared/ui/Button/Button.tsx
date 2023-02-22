@@ -1,5 +1,4 @@
-import { Theme } from 'app/providers/ThemeProvider';
-import React, { ButtonHTMLAttributes, FC, HTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
