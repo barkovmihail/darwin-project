@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { LoginModal } from 'features/AuthByUsername';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -16,8 +17,12 @@ export const Navbar: FC<NavbarProps> = (props: NavbarProps) => {
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const onToggleModel = useCallback(() => {
-        setIsOpen((prev) => !prev);
+    const onCloseModel = useCallback(() => {
+        setIsOpen(false);
+    }, [setIsOpen]);
+
+    const onShowModel = useCallback(() => {
+        setIsOpen(true);
     }, [setIsOpen]);
 
     return (
@@ -25,15 +30,12 @@ export const Navbar: FC<NavbarProps> = (props: NavbarProps) => {
             <Button
                 className={cls.links}
                 theme={ButtonTheme.UNSTYLED}
-                onClick={onToggleModel}
+                onClick={onShowModel}
             >
                 {t('Войти')}
             </Button>
             {/* eslint-disable-next-line i18next/no-literal-string */}
-            <Modal isOpen={isOpen} onClose={onToggleModel}>
-                {/* eslint-disable-next-line react/no-unescaped-entities,max-len */}
-                {t('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')}
-            </Modal>
+            <LoginModal isOpen={isOpen} onClose={onCloseModel} />
         </div>
     );
 };
