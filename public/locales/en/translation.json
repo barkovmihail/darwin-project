@@ -8,9 +8,12 @@
   "Пробросить ошибку": "Throw error",
   "Переключатель": "Toggle",
   "Короткий язык": "EN",
-  "Войти": "Войти",
+  "Войти": "Log in",
   "increment": "increment",
   "decrement": "decrement",
-  "('Логин')": "('Логин')",
-  "('Пароль')": "('Пароль')"
+  "Логин": "Login",
+  "Пароль": "Password",
+  "Форма авторизации": "Login form",
+  "Выйти": "Logout",
+  "Неверный логин или пароль": "Incorrect login or password"
 }
