@@ -1,6 +1,7 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import { StateScheme } from 'app/providers/StoreProvider';
 import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError';
+import { getLoginIsLoading } from 'features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading';
 
 describe('getLoginIsLoading.test', () => {
     test('should return error', () => {
@@ -10,12 +11,12 @@ describe('getLoginIsLoading.test', () => {
             },
         };
 
-        expect(getLoginError(state as StateScheme)).toEqual(true);
+        expect(getLoginIsLoading(state as StateScheme)).toEqual(true);
     });
 
     test('should work with empty state', () => {
         const state: DeepPartial<StateScheme> = { };
 
-        expect(getLoginError(state as StateScheme)).toEqual(undefined);
+        expect(getLoginIsLoading(state as StateScheme)).toEqual(false);
     });
 });
