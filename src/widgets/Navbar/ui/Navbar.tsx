@@ -1,4 +1,6 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, {
+    FC, memo, useCallback, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Modal } from 'shared/ui/Modal/Modal';
@@ -12,7 +14,7 @@ interface NavbarProps {
     className?: string;
 }
 
-export const Navbar: FC<NavbarProps> = (props: NavbarProps) => {
+export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
 
@@ -60,4 +62,4 @@ export const Navbar: FC<NavbarProps> = (props: NavbarProps) => {
             {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModel} />}
         </div>
     );
-};
+});
