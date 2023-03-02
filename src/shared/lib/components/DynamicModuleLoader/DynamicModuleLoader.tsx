@@ -1,11 +1,8 @@
 import React, { FC, useEffect } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useDispatch, useStore } from 'react-redux';
 import { Reducer } from '@reduxjs/toolkit';
-import cls from './DynamicModuleLoader.module.scss';
-import { ReduxStoreWithManager } from '../../../../app/providers/StoreProvider';
-import { loginReducer } from '../../../../features/AuthByUsername/model/slice/loginSlice';
-import { StateSchemeKey } from '../../../../app/providers/StoreProvider/config/StateSchema';
+import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
+import { StateSchemeKey } from 'app/providers/StoreProvider/config/StateSchema';
 
 export type ReducerList = {
     [name in StateSchemeKey]?: Reducer;
@@ -46,6 +43,8 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     }, []);
 
     return (
-        { children }
+        <>
+            {children}
+        </>
     );
 };
