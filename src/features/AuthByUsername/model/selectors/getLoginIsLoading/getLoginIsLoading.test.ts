@@ -1,6 +1,4 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateScheme } from 'app/providers/StoreProvider';
-import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from 'features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading';
 
 describe('getLoginIsLoading.test', () => {

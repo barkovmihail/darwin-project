@@ -3,8 +3,9 @@ import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { StateScheme, StoreProvider } from '../../../app/providers/StoreProvider';
 import { loginReducer } from '../../../features/AuthByUsername/model/slice/loginSlice';
 import { profileReducer } from '../../../entities/Profile';
+import { ReducerList } from '../../lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
-const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateScheme>> = {
+const defaultAsyncReducers: ReducerList = {
     loginForm: loginReducer,
     profile: profileReducer,
 };
