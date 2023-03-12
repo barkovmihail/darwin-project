@@ -10,7 +10,21 @@ export function useTheme(): UseThemeResult {
     const { theme, setTheme } = useContext(ThemeContext);
 
     const toggleTheme = () => {
-        const newItem = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
+        let newItem: Theme;
+        switch (theme) {
+        case Theme.DARK:
+            newItem = Theme.LIGHT;
+            break;
+        case Theme.LIGHT:
+            newItem = Theme.ORANGE;
+            break;
+        case Theme.ORANGE:
+            newItem = Theme.DARK;
+            break;
+        default:
+            newItem = Theme.LIGHT;
+        }
+
         setTheme?.(newItem);
         document.body.className = newItem;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newItem);
