@@ -1,0 +1,39 @@
+import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+import { Article } from 'entities/Article';
+import { ArticleType } from 'entities/Article/model/types/article';
+import { fetchArticleById } from './fetchArticleById';
+
+const data: Article = {
+    id: '1',
+    title: 'Javascript news',
+    subtitle: 'Что нового в JS за 2022 год?',
+    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    views: 1022,
+    createdAt: '26.02.2022',
+    type: [ArticleType.IT],
+    blocks: [],
+};
+
+describe('fetchArticleById.test', () => {
+    test('success', async () => {
+        const thunk = new TestAsyncThunk(fetchArticleById);
+        thunk.api.get.mockReturnValue(Promise.resolve({ data }));
+
+        const result = await thunk.callThunk();
+
+        expect(thunk.api.get).toHaveBeenCalled();
+        expect(result.meta.requestStatus).toEqual('fulfilled');
+        expect(result.payload).toEqual(data);
+    });
+
+    test('error', async () => {
+        const thunk = new TestAsyncThunk(fetchArticleById);
+        thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
+
+        const result = await thunk.callThunk();
+
+        expect(result.meta.requestStatus).toEqual('rejected');
+    });
+});
