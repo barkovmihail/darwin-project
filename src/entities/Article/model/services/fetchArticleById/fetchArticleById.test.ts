@@ -1,6 +1,4 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
 import { Article } from 'entities/Article';
 import { ArticleType } from 'entities/Article/model/types/article';
 import { fetchArticleById } from './fetchArticleById';
@@ -21,7 +19,7 @@ describe('fetchArticleById.test', () => {
         const thunk = new TestAsyncThunk(fetchArticleById);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
 
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toEqual('fulfilled');
@@ -32,7 +30,7 @@ describe('fetchArticleById.test', () => {
         const thunk = new TestAsyncThunk(fetchArticleById);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
 
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(result.meta.requestStatus).toEqual('rejected');
     });

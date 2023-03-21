@@ -13,9 +13,10 @@ const data = {
     first: 'Mikhail',
     currency: Currency.RUB,
     city: 'Izhevsk',
+    id: '1',
 };
 
-describe('   .test', () => {
+describe('updateProfileData.test', () => {
     test('success', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
