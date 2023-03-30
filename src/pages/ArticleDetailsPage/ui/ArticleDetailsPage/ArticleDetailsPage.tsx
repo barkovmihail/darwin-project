@@ -18,7 +18,7 @@ import { AddCommentForm } from '../../../../features/addCommentForm';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getAddCommentFormText } from '../../../../features/addCommentForm/model/selectors/addCommentFormSelectors';
 import { Button, ButtonTheme } from '../../../../shared/ui/Button/Button';
-import { Page } from '../../../../shared/ui/Page/Page';
+import { Page } from '../../../../widgets/Page/ui/Page/Page';
 
 interface ArticleDetailsPageProps {
     className?: string;

@@ -7,7 +7,7 @@ import { PageLoader } from 'widgets/PageLoader/ui/PageLoader';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/ui/Page/Page';
 
 const AppRouter = () => {
     const renderWithWrapper = useCallback((route: AppRoutesProps) => {

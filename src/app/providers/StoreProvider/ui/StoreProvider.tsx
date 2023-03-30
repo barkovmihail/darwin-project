@@ -23,8 +23,6 @@ export const StoreProvider = (props : StoreProviderProps) => {
         asyncReducers as ReducersMapObject<StateScheme>,
     );
 
-    console.log('STORE');
-
     return (
         <Provider store={store}>
             {children}

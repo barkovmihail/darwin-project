@@ -8,6 +8,7 @@ import { createReducerManager } from 'app/providers/StoreProvider/config/reducer
 import { $api } from 'shared/api/api';
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
+import { scrollRestorationReducer } from 'widgets/Page/ui/ScrollRestoration/model/slices/scrollRestorationSlice';
 import { ThunkExtraArg } from './StateSchema';
 
 export function createReduxStore(
@@ -18,6 +19,7 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        scroll: scrollRestorationReducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);

@@ -6,16 +6,17 @@ import {
 } from '@reduxjs/toolkit';
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
-import { To } from 'history';
-import { NavigateOptions } from 'react-router';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
+import { getScrollRestoration } from 'widgets/Page/ui/ScrollRestoration/model/selectors/scrollRestoration';
+import { ScrollRestorationSchema } from 'widgets/Page';
 
 export interface StateScheme {
   counter: CounterSchema;
   user: UserSchema;
+  scroll: ScrollRestorationSchema;
 
   // Асинхронные редюсеры
   loginForm? : LoginSchema;
