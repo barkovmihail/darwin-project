@@ -18,13 +18,12 @@ export const StoreProvider = (props : StoreProviderProps) => {
         asyncReducers,
     } = props;
 
-    const navigate = useNavigate();
-
     const store = createReduxStore(
         initialState as StateScheme,
         asyncReducers as ReducersMapObject<StateScheme>,
-        navigate,
     );
+
+    console.log('STORE');
 
     return (
         <Provider store={store}>

@@ -11,7 +11,7 @@ interface PageProps {
     onScrollEnd?: () => void;
 }
 
-export const Page = memo((props: PageProps) => {
+export const Page = (props: PageProps) => {
     const {
         className,
         children,
@@ -33,4 +33,4 @@ export const Page = memo((props: PageProps) => {
             <div ref={triggerRef} />
         </section>
     );
-});
+};
