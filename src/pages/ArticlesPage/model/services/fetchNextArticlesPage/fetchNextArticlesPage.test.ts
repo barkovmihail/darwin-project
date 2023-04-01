@@ -2,6 +2,7 @@ import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { StateScheme } from 'app/providers/StoreProvider';
 import { getArticlesPageIsLoading } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { DeepPartial } from '@reduxjs/toolkit';
+import { ArticleType, ArticleView } from 'entities/Article';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from '../fetchNextArticlesPage/fetchNextArticlesPage';
 
@@ -56,6 +57,7 @@ describe('fetchNextArticlesPage.test', () => {
                 isLoading: true,
                 hasMore: false,
                 _inited: false,
+                type: ArticleType.ALL,
             },
         };
 
