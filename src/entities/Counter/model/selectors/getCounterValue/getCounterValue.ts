@@ -1,4 +1,4 @@
-import { StateScheme } from 'app/providers/StoreProvider';
+import { StateSchema } from 'app/providers/StoreProvider';
 import { createSelector } from '@reduxjs/toolkit';
 import { CounterSchema } from 'entities/Counter';
 import { getCounter } from '../getCounter/getCounter';

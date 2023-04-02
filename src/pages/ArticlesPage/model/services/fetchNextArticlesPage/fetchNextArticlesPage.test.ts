@@ -1,5 +1,5 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { StateScheme } from 'app/providers/StoreProvider';
+import { StateSchema } from 'app/providers/StoreProvider';
 import { getArticlesPageIsLoading } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { DeepPartial } from '@reduxjs/toolkit';
 import { ArticleType, ArticleView } from 'entities/Article';
@@ -48,7 +48,7 @@ describe('fetchNextArticlesPage.test', () => {
     });
 
     test('fetchArticleList isLoading', async () => {
-        const state: DeepPartial<StateScheme> = {
+        const state: DeepPartial<StateSchema> = {
             articlesPage: {
                 page: 2,
                 ids: [],
@@ -74,6 +74,6 @@ describe('fetchNextArticlesPage.test', () => {
 
         await thunk.callThunk();
 
-        expect(getArticlesPageIsLoading(state as StateScheme)).toEqual(true);
+        expect(getArticlesPageIsLoading(state as StateSchema)).toEqual(true);
     });
 });

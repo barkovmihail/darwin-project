@@ -4,11 +4,11 @@ import { I18nextProvider } from 'react-i18next';
 import i18nForTests from 'shared/config/i18n/i18nForTests';
 import { MemoryRouter } from 'react-router-dom';
 import { DeepPartial } from '@reduxjs/toolkit';
-import { StateScheme, StoreProvider } from 'app/providers/StoreProvider';
+import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 
 export interface componentRouterOptions {
     route?: string;
-    initialState?: DeepPartial<StateScheme>;
+    initialState?: DeepPartial<StateSchema>;
 }
 
 export function componentRouter(component: ReactNode, options: componentRouterOptions = {}) {

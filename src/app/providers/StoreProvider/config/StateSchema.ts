@@ -7,13 +7,12 @@ import {
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
-import { getScrollRestoration } from 'widgets/Page/ui/ScrollRestoration/model/selectors/scrollRestoration';
 import { ScrollRestorationSchema } from 'widgets/Page';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 
-export interface StateScheme {
+export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   scroll: ScrollRestorationSchema;
@@ -22,21 +21,21 @@ export interface StateScheme {
   loginForm? : LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsComments?: ArticleDetailsCommentsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlePageSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
-export type StateSchemeKey = keyof StateScheme;
+export type StateSchemeKey = keyof StateSchema;
 
 export interface ReducerManager {
-  getReducerMap: () => ReducersMapObject<StateScheme>;
-  reduce: (state: StateScheme, action: AnyAction) => CombinedState <StateScheme>;
+  getReducerMap: () => ReducersMapObject<StateSchema>;
+  reduce: (state: StateSchema, action: AnyAction) => CombinedState <StateSchema>;
   add: (key: StateSchemeKey, reducer: Reducer) => void;
   remove: (key: StateSchemeKey) => void;
 }
 
-export interface ReduxStoreWithManager extends EnhancedStore<StateScheme> {
+export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager;
 }
 
@@ -47,5 +46,5 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
   rejectValue: T;
   extra: ThunkExtraArg;
-  state: StateScheme;
+  state: StateSchema;
 }
