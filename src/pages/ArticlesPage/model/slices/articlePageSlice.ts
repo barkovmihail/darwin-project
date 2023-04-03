@@ -50,7 +50,6 @@ const articlePageSlice = createSlice({
             state.search = action.payload;
         },
         setType: (state, action: PayloadAction<ArticleType>) => {
-            console.log('setType', action.payload);
             state.type = action.payload;
         },
         initState: (state) => {

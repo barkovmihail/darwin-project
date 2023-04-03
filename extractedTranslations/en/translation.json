@@ -3,6 +3,7 @@
   "('Перезагрузить страницу')": "('Перезагрузить страницу')",
   "('Пробросить ошибку')": "('Пробросить ошибку')",
   "('Произошла непредвиденная ошибка')": "('Произошла непредвиденная ошибка')",
+  "Darwin": "",
   "Lorem Ipsum is simply dummy text of the printing and typesetting industry": {
     " Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book": {
       " It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged": {
@@ -56,9 +57,12 @@
   "Произошла ошибка при загрузке статьи": "",
   "Произошла ошибка при загрузки профиля": "",
   "Профиль": "",
+  "Редактирование статьи с ИД = ": "",
   "Редактировать": "",
   "Рекомендуем": "",
   "Серверная ошибка при сохранении": "",
+  "Создание новой статьи": "",
+  "Создать статью": "",
   "Сортировать по": "Сортировать по",
   "Сохранить": "",
   "Статьи не найдены": "",

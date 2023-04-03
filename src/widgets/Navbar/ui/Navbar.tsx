@@ -3,11 +3,13 @@ import React, {
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Modal } from 'shared/ui/Modal/Modal';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -39,6 +41,18 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.navbar, {}, [className])}>
+                <Text
+                    className={cls.appName}
+                    title={t('Darwin')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    to={RoutePath.articles_create}
+                    theme={AppLinkTheme.INVERTED}
+                    className={cls.createLink}
+                >
+                    {t('Создать статью')}
+                </AppLink>
                 <Button
                     className={cls.links}
                     theme={ButtonTheme.UNSTYLED}
