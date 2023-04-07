@@ -1,8 +1,8 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { Article, ArticleDetailsSchema } from 'entities/Article';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { articleDetailsReducer } from '../slice/articleDetailsSlice';
+import { Article, ArticleType } from '../types/article';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
 const data: Article = {
     id: '1',

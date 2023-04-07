@@ -1,8 +1,8 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { getArticlesPageIsLoading } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { DeepPartial } from '@reduxjs/toolkit';
 import { ArticleType, ArticleView } from 'entities/Article';
+import { getArticlesPageIsLoading } from '../../../model/selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from '../fetchNextArticlesPage/fetchNextArticlesPage';
 

@@ -1,9 +1,11 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import {
-    profileActions, profileReducer, ProfileSchema, updateProfileData, ValidateProfileError,
-} from 'entities/Profile';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import {
+    ProfileSchema, ValidateProfileError,
+} from '../types/profile';
+import { profileActions, profileReducer } from '../slice/profileSlice';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 const data = {
     username: 'admin',

@@ -3,9 +3,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import 'app/styles/index.scss';
 import { Theme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { Sidebar } from './Sidebar';
-import { ThemeDecorator } from '../../../../shared/config/storybook/ThemeDecorator';
-import { StoreDecorator } from '../../../../shared/config/storybook/StoreDecorator';
 
 export default {
     title: 'widgets/Sidebar',

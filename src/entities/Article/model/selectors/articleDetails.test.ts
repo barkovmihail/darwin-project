@@ -4,9 +4,8 @@ import {
     getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
-} from 'entities/Article/model/selectors/articleDetails';
-import { Article } from 'entities/Article';
-import { ArticleType } from 'entities/Article/model/types/article';
+} from '../selectors/articleDetails';
+import { Article, ArticleType } from '../types/article';
 
 const data: Article = {
     id: '1',

@@ -1,5 +1,3 @@
-import { getProfileReadonly } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
-
 export {
     Profile,
     ProfileSchema,

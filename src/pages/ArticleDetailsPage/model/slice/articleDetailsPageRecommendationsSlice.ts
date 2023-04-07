@@ -2,12 +2,11 @@ import {
     createEntityAdapter,
     createSlice, PayloadAction,
 } from '@reduxjs/toolkit';
-import { CommentType } from 'entities/Comment';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
 import {
     fetchArticleRecommendations,
-} from 'pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+} from '../services/fetchArticleRecommendations/fetchArticleRecommendations';
 import {
     ArticleDetailsPageRecommendationsSchema,
 } from '../types/ArticleDetailsPageRecommendationsSchema';
