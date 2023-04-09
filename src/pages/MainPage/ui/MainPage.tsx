@@ -9,18 +9,6 @@ const MainPage = () => {
     return (
         <Page>
             {t('Главная страница')}
-            <div>
-                <ListBox
-                    defaultValue={t('Выберите значение')}
-                    onChange={(value: string) => {}}
-                    value={undefined}
-                    items={[
-                        { value: '1', content: '123' },
-                        { value: '2', content: '222', disabled: true },
-                        { value: '3', content: '333' },
-                    ]}
-                />
-            </div>
         </Page>
     );
 };
