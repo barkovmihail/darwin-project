@@ -1,9 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from '../../config/storybook/ThemeDecorator';
-import { ArticleEditPage } from './ArticleEditPage';
+import ArticleEditPage from './ArticleEditPage';
 
 export default {
     title: 'shared/ArticleEditPage',
@@ -17,4 +14,3 @@ const Template: ComponentStory<typeof ArticleEditPage> = (args) => <ArticleEditP
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [ThemeDecorator(Theme.DARK)];
