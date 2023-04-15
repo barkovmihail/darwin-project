@@ -1,9 +1,7 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import {
-    ProfileSchema, ValidateProfileError,
-} from '../types/profile';
+import { ProfileSchema, ValidateProfileError } from '../../model/types/editableProfileCardSchema';
 import { profileActions, profileReducer } from '../slice/profileSlice';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
