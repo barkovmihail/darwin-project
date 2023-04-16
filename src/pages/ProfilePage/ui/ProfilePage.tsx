@@ -18,10 +18,6 @@ const ProfilePage = (props: ProfilePageProps) => {
     const { t } = useTranslation('profile');
     const { id } = useParams<{ id: string }>();
 
-    if (!id) {
-        return <Text text={t('Профиль не найден')} />;
-    }
-
     return (
         <Page className={classNames('', {}, [className])}>
             <VStack gap={16} max>

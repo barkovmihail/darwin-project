@@ -5,6 +5,7 @@ import 'app/styles/index.scss';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from '../../../shared/config/storybook/ThemeDecorator';
 import MainPage from './MainPage';
+import { StoreDecorator } from '../../../shared/config/storybook/StoreDecorator';
 
 export default {
     title: 'pages/MainPage',
@@ -12,6 +13,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof MainPage>;
 
 const Template: ComponentStory<typeof MainPage> = (args) => <MainPage />;

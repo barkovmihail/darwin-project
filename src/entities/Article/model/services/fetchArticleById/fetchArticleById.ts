@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
+import { Page } from 'widgets/Page/ui/Page/Page';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Article } from '../../types/article';
 
 interface LoginByUsernameProps {
@@ -7,12 +9,16 @@ interface LoginByUsernameProps {
     password: string;
 }
 
-export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(
+export const fetchArticleById = createAsyncThunk<Article, string | undefined, ThunkConfig<string>>(
     'article/fetchArticleById',
     async (articleId, thunkAPI) => {
         const { extra, rejectWithValue } = thunkAPI;
 
         try {
+            if (!articleId) {
+                return rejectWithValue('error');
+            }
+
             const response = await extra.api.get<Article>(`/articles/${articleId}`, {
                 params: {
                     _expand: 'user',
