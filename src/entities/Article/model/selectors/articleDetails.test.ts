@@ -1,11 +1,12 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
+import { ArticleType } from '../consts/consts';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from '../selectors/articleDetails';
-import { Article, ArticleType } from '../types/article';
+import { Article } from '../types/article';
 
 const data: Article = {
     id: '1',

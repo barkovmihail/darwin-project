@@ -1,6 +1,7 @@
 import { DeepPartial } from '@reduxjs/toolkit';
+import { ArticleType } from '../consts/consts';
 import { articleDetailsReducer } from '../slice/articleDetailsSlice';
-import { Article, ArticleType } from '../types/article';
+import { Article } from '../types/article';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
