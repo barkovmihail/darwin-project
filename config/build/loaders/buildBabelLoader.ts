@@ -1,7 +1,12 @@
 import { BuildOptions } from '../types/config';
+import babelRemovePropsPlugin from '../../babel/babelRemovePropsPlugin';
 
-export const buildBabelLoader = ({ isDev }: BuildOptions) => ({
-    test: /\.(js|jsx|tsx)$/,
+interface BuildBabelLoaderProps extends BuildOptions {
+    isTsx: boolean;
+}
+
+export const buildBabelLoader = ({ isDev, isTsx }: BuildBabelLoaderProps) => ({
+    test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,
     use: {
         loader: 'babel-loader',
@@ -15,7 +20,20 @@ export const buildBabelLoader = ({ isDev }: BuildOptions) => ({
                         keyIsDefaultValue: true,
                     },
                 ],
-            ],
+                [
+                    '@babel/plugin-transform-typescript',
+                    {
+                        isTsx,
+                    },
+                ],
+                '@babel/plugin-transform-runtime',
+                isTsx && !isDev && [
+                    babelRemovePropsPlugin,
+                    {
+                        props: ['data-testid'],
+                    },
+                ],
+            ].filter(Boolean),
         },
     },
 });
