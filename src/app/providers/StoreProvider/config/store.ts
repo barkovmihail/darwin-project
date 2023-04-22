@@ -1,8 +1,6 @@
 import {
-    CombinedState, configureStore, DeepPartial, Reducer, ReducersMapObject,
+    CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { To } from 'history';
-import { NavigateOptions } from 'react-router';
 import { counterReducer } from '@/entities/Counter';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { userReducer } from '@/entities/User';
