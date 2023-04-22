@@ -19,6 +19,7 @@
     transition: 0.2s transform;
     transform: scale(0.5);
     max-width: 50%;
+    z-index: var(--model-z-index);
 }
 
 .opened {

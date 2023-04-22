@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import 'app/styles/index.scss';
-import { Theme } from 'app/providers/ThemeProvider';
+import '@/app/styles/index.scss';
+import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator';
 import { AppLink, AppLinkTheme } from './AppLink';
 import { OutlineDark } from '../Button/Button.stories';

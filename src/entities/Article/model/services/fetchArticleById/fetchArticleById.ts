@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
-import { Page } from 'widgets/Page/ui/Page/Page';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { ThunkConfig } from '@/app/providers/StoreProvider/config/StateSchema';
+import { Page } from '@/widgets/Page/ui/Page/Page';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Article } from '../../types/article';
 
 interface LoginByUsernameProps {

@@ -2,10 +2,10 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Button, ButtonSize, ButtonTheme } from './Button';
-import 'app/styles/index.scss';
+import '@/app/styles/index.scss';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator';
 // eslint-disable-next-line import/order
-import { Theme } from 'app/providers/ThemeProvider';
+import { Theme } from '@/app/providers/ThemeProvider';
 
 export default {
     title: 'shared/Button',

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
-import { CommentType } from 'entities/Comment';
+import { ThunkConfig } from '@/app/providers/StoreProvider/config/StateSchema';
+import { CommentType } from '@/entities/Comment';
 
 interface LoginByUsernameProps {
     username: string;
