@@ -15,6 +15,8 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { HStack } from 'shared/ui/Stack';
 import { NotificationButton } from 'features/notificationButton';
 import { AvatarDropdown } from 'features/avatarDropdown';
+import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { NotificationList } from 'entities/Notification';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -28,15 +30,15 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
 
     const authData = useSelector(getUserAuthData);
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isAuthModal, setIsAuthModal] = useState(false);
 
     const onCloseModel = useCallback(() => {
-        setIsOpen(false);
-    }, [setIsOpen]);
+        setIsAuthModal(false);
+    }, [setIsAuthModal]);
 
     const onShowModel = useCallback(() => {
-        setIsOpen(true);
-    }, [setIsOpen]);
+        setIsAuthModal(true);
+    }, [setIsAuthModal]);
 
     if (authData) {
         return (
@@ -70,7 +72,7 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModel} />}
+            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModel} />}
         </header>
     );
 });

@@ -19,7 +19,7 @@ export const NotificationList = memo((props: NotificationListProps) => {
     const { t } = useTranslation();
 
     const { data: notifications, isLoading } = useNotifications(null, {
-        pollingInterval: 5000,
+        pollingInterval: 30000,
     });
 
     if (isLoading) {
