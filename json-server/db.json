@@ -796,11 +796,11 @@
       "profileId": "1"
     },
     {
-      "id": "2",
-      "rate": 4,
-      "feedback": "Хорошая статья",
       "userId": "1",
-      "profileId": "2"
+      "profileId": "2",
+      "rate": 2,
+      "feedback": "не очень",
+      "id": "520-Fzg"
     }
   ]
 }
