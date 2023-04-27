@@ -5,7 +5,7 @@ import '@/app/styles/index.scss';
 import { CountrySelect } from './CountrySelect';
 
 export default {
-    title: 'shared/CountrySelect',
+    title: 'entities/Country/CountrySelect',
     component: CountrySelect,
     argTypes: {
         backgroundColor: { control: 'color' },
