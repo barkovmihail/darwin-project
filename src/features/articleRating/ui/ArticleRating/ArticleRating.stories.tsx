@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import withMock from 'storybook-addon-mock';
 import ArticleRating from './ArticleRating';
-import { StoreDecorator } from '../../../../shared/config/storybook/StoreDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
 export default {
     title: 'features/ArticleRating',
@@ -28,16 +28,18 @@ Normal.decorators = [
     }),
 ];
 Normal.parameters = {
-    mockData: [{
-        url: `${__API__}/article-ratings?user=1&articleId=1`,
-        method: 'GET',
-        status: 200,
-        response: [
-            {
-                rate: 4,
-            },
-        ],
-    }],
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            method: 'GET',
+            status: 200,
+            response: [
+                {
+                    rate: 4,
+                },
+            ],
+        },
+    ],
 };
 
 export const WithoutRate = Template.bind({});
@@ -52,10 +54,12 @@ WithoutRate.decorators = [
     }),
 ];
 WithoutRate.parameters = {
-    mockData: [{
-        url: `${__API__}/article-ratings?user=1&articleId=1`,
-        method: 'GET',
-        status: 200,
-        response: [],
-    }],
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            method: 'GET',
+            status: 200,
+            response: [],
+        },
+    ],
 };
