@@ -1,7 +1,6 @@
 import { HTMLAttributes, memo, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Card.module.scss';
-import { VStack } from '@/shared/ui/Stack';
 
 export enum CardTheme {
     NORMAL = 'normal',

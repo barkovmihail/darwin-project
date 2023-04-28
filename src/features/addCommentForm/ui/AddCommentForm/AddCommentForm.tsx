@@ -8,11 +8,11 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { HStack } from '@/shared/ui/Stack';
 import cls from './AddCommentForm.module.scss';
 import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import {
     DynamicModuleLoader,
     ReducerList,
-} from '../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 
 export interface AddCommentFormProps {
     className?: string;
