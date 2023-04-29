@@ -29,11 +29,12 @@ module.exports = {
         indent: [2, 4],
         'react/jsx-indent-props': [2, 4],
         'react/jsx-filename-extension': [
-            2, { extensions: ['.js', '.jsx', 'tsx'] },
+            2,
+            { extensions: ['.js', '.jsx', '.tsx'] },
         ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
-        'no-unused-vars': 'warn',
+        'no-unused-vars': 'off',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'warn',
@@ -71,7 +72,13 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
         'darwin-path/path-checker': ['error', { alias: '@' }],
-        'darwin-path/public-api-imports': ['error', { alias: '@' }],
+        'darwin-path/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,
