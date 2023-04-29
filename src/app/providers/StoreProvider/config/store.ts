@@ -6,9 +6,9 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { userReducer } from '@/entities/User';
 import { createReducerManager } from '@/app/providers/StoreProvider/config/reducerManager';
 import { $api } from '@/shared/api/api';
-import { scrollRestorationReducer } from '@/widgets/Page/ui/ScrollRestoration/model/slices/scrollRestorationSlice';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ThunkExtraArg } from './StateSchema';
+import { scrollRestorationReducer } from '@/widgets/Page';
 
 export function createReduxStore(
     initialState?: StateSchema,

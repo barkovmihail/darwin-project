@@ -1,12 +1,12 @@
 import { lazy, Suspense } from 'react';
-import { ArticleRatingProps } from '@/features/articleRating/ui/ArticleRating/ArticleRating';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { ProfileRatingProps } from './ProfileRating';
 
 export const ProfileRatingLazy = lazy(
     () => import('./ProfileRating'),
 );
 
-export const ProfileRatingAsync = (props: ArticleRatingProps) => {
+export const ProfileRatingAsync = (props: ProfileRatingProps) => {
     return (
         <Suspense fallback={<Skeleton width="100%" height={140} />}>
             <ProfileRatingLazy {...props} />
