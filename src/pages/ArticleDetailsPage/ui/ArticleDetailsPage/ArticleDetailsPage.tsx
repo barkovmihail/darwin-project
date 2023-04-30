@@ -4,7 +4,6 @@ import { useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleDetails } from '@/entities/Article';
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import cls from './ArticleDetailsPage.module.scss';
 import { getAddCommentFormText } from '../../../../features/addCommentForm/model/selectors/addCommentFormSelectors';
 import { Page } from '../../../../widgets/Page/ui/Page/Page';
@@ -14,6 +13,7 @@ import { VStack } from '../../../../shared/ui/Stack';
 import { ArticleRecommendationsList } from '../../../../features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '../../../../features/articleRating';
+import { RoutePath } from '../../../../shared/const/router';
 
 interface ArticleDetailsPageProps {
     className?: string;
