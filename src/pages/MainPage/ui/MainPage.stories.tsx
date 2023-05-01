@@ -1,11 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import '@/app/styles/index.scss';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '../../../shared/config/storybook/ThemeDecorator';
 import MainPage from './MainPage';
 import { StoreDecorator } from '../../../shared/config/storybook/StoreDecorator';
+import { Theme } from '../../../shared/const/theme';
 
 export default {
     title: 'pages/MainPage',
