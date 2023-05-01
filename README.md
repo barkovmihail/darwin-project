@@ -84,7 +84,7 @@ which contains 3 rules
 - `npm run lint:scss:fix` - Fix scss style files with linter
 
 ----
-##Storybook
+## Storybook
 
 The project describes story cases for each component.
 Server requests are mocked using storybook-addon-mock.
@@ -95,39 +95,6 @@ You can start the storybook with the command:
 - `npm run storybook`
 
 More about [Storybook](/docs/storybook.md)
-
-Example:
-
-```typescript jsx
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Button, ButtonSize, ButtonTheme } from './Button';
-import { Theme } from '@/shared/const/theme';
-
-export default {
-   title: 'shared/Button',
-   component:Button,
-   argTypes: {
-      backgroundColor: { control: 'color' },
-   },
-} as ComponentMeta<typeofButton>;
-
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-   children: 'Text',
-};
-
-export const Clear = Template.bind({});
-Clear.args = {
-   children: 'Text',
-   theme:ButtonTheme.CLEAR,
-};
-```
-
 
 ----
 
@@ -155,3 +122,44 @@ The github actions configuration is located in /.github/workflows.
 In ci, all types of tests, project and storybook assembly, linting are run.
 
 In precommit hooks, we check the project with linters, the config is in /.h
+
+----
+
+### Working with data
+
+Interaction with data is carried out using the redux toolkit.
+Whenever possible, reusable entities should be normalized using the EntityAdapter
+
+Server requests are sent using [RTK query](/src/shared/api/rtkApi.ts)
+
+For asynchronous connection of reducers (so as not to pull them into a common bundle), use
+[DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
+
+----
+
+## Entities
+
+- [Article](/src/entities/Article)
+- [Comment](/src/entities/Comment)
+- [Counter](/src/entities/Counter)
+- [Country](/src/entities/Country)
+- [Currency](/src/entities/Currency)
+- [Notification](/src/entities/Notification)
+- [Profile](/src/entities/Profile)
+- [Rating](/src/entities/Rating)
+- [User](/src/entities/User)
+
+## Features
+
+- [addCommentForm](/src/features/addCommentForm)
+- [articleEditForm](/src/features/articleEditForm)
+- [articleRating](/src/features/articleRating)
+- [articleRecommendationsList](/src/features/articleRecommendationsList)
+- [AuthByUsername](/src/features/AuthByUsername)
+- [avatarDropdown](/src/features/avatarDropdown)
+- [editableProfileCard](/src/features/editableProfileCard)
+- [LangSwitcher](/src/features/LangSwitcher)
+- [notificationButton](/src/features/notificationButton)
+- [profileRating](/src/features/profileRating)
+- [ThemeSwitcher](/src/features/ThemeSwitcher)
+- [UI](/src/features/UI)
