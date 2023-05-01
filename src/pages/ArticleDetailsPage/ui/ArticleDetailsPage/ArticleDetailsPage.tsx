@@ -13,7 +13,7 @@ import { VStack } from '../../../../shared/ui/Stack';
 import { ArticleRecommendationsList } from '../../../../features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '../../../../features/articleRating';
-import { RoutePath } from '../../../../shared/const/router';
+import { getRouteArticles } from '../../../../shared/const/router';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -35,7 +35,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const navigate = useNavigate();
 
     const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
+        navigate(getRouteArticles());
     }, [navigate]);
 
     if (!id) {
