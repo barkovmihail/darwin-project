@@ -8,6 +8,10 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
+        'eslint:recommended',
+        'plugin:import/recommended',
+        'plugin:import/errors',
+        'plugin:import/warnings',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -23,6 +27,9 @@ module.exports = {
         'i18next',
         'react-hooks',
         'darwin-path',
+        'unused-imports',
+        'import',
+
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -32,8 +39,9 @@ module.exports = {
             2,
             { extensions: ['.js', '.jsx', '.tsx'] },
         ],
-        'import/no-unresolved': 'off',
+        'unused-imports/no-unused-imports': 'error',
         'import/prefer-default-export': 'off',
+        'import/no-unresolved': 'off',
         'no-unused-vars': 'off',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',

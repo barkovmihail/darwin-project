@@ -1,7 +1,7 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { ArticleType, ArticleView } from '@/entities/Article';
+import { ArticleType } from '@/entities/Article';
 import { getArticlesPageIsLoading } from '../../../model/selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from '../fetchNextArticlesPage/fetchNextArticlesPage';

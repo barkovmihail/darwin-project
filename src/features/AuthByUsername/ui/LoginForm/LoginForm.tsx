@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
-    memo, useCallback, useEffect, useState,
+    memo, useCallback,
 } from 'react';
 import { Input } from '@/shared/ui/Input';
 import { classNames } from '@/shared/lib/classNames/classNames';
