@@ -9,6 +9,10 @@ interface UseModalProps {
     animationDelay: number;
 }
 
+/**
+ * Reusable hook for modal components (drawer/model)
+ * @param props
+ */
 export function useModal(props: UseModalProps) {
     const {
         onClose,

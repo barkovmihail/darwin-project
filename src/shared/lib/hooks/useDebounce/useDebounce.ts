@@ -1,5 +1,10 @@
 import { MutableRefObject, useCallback, useRef } from 'react';
 
+/**
+ * The hook allows you to cancel the previous function call until the delay expires.
+ * @param callback
+ * @param delay
+ */
 export function useDebounce(callback: (...args: any[]) => void, delay: number) {
     const timer = useRef() as MutableRefObject<any>;
 
