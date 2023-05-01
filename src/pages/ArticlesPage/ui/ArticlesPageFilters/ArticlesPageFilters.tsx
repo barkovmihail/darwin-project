@@ -9,8 +9,8 @@ import { SortOrder } from '@/shared/types';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import cls from './ArticlesPageFilters.module.scss';
 import {
-    ArticleSortField, ArticleSortSelector, ArticleType, ArticleTypeTabs, ArticleView, ArticleViewSelector,
-} from '../../../../entities/Article';
+    ArticleSortField, ArticleType, ArticleView,
+} from '@/entities/Article';
 import {
     getArticlesPageOrder,
     getArticlesPageSearch, getArticlesPageSort, getArticlesPageType,
@@ -18,6 +18,9 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 import { articlePageActions } from '../../model/slices/articlePageSlice';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 
 interface ArticlesPageFiltersProps {
     className?: string;
