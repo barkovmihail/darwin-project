@@ -20,7 +20,7 @@ interface PageProps extends TestProps {
     onScrollEnd?: () => void;
 }
 
-export const Page = (props: PageProps) => {
+export const Page = memo((props: PageProps) => {
     const {
         className,
         children,
@@ -62,4 +62,4 @@ export const Page = (props: PageProps) => {
             {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
         </main>
     );
-};
+});
