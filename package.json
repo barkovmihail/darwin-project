@@ -11,6 +11,7 @@
     "start:dev:vite": "concurrently \"npm run start:vite\" \"npm run start:dev:server\"",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
+    "prettier": "npx prettier --write **/*.{ts,tsx,json}",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
@@ -29,7 +30,7 @@
     "postinstall": "node ./scripts/clear-cache.js"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "lint:ts"
+    "**/*.{ts,tsx}": ["prettier --list-different", "eslint"]
   },
   "keywords": [],
   "author": "",
@@ -73,6 +74,7 @@
     "cypress": "^11.0.0",
     "eslint": "8.22.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^34.0.0",
     "eslint-plugin-darwin-path": "^0.0.22",
     "eslint-plugin-i18next": "^5.1.2",
@@ -95,6 +97,7 @@
     "lint-staged": "^13.2.2",
     "loki": "^0.31.0",
     "mini-css-extract-plugin": "^2.5.3",
+    "prettier": "2.7.1",
     "react-refresh": "^0.12.0",
     "reg-cli": "^0.17.6",
     "regenerator-runtime": "^0.13.9",

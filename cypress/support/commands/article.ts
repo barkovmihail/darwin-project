@@ -7,19 +7,19 @@ const defaultArticle = {
     views: 1022,
     createdAt: '26.02.2022',
     userId: '1',
-    type: [
-        'IT',
-    ],
+    type: ['IT'],
     blocks: [],
 };
 
 export const createArticle = (article?: Article) => {
-    return cy.request({
-        method: 'POST',
-        url: 'http://localhost:8000/articles',
-        headers: { Authorization: 'fdsfdf' },
-        body: article ?? defaultArticle,
-    }).then((response) => response.body);
+    return cy
+        .request({
+            method: 'POST',
+            url: 'http://localhost:8000/articles',
+            headers: { Authorization: 'fdsfdf' },
+            body: article ?? defaultArticle,
+        })
+        .then((response) => response.body);
 };
 
 export const removeArticle = (articleId: string) => {

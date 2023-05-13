@@ -7,30 +7,31 @@ interface LoginByUsernameProps {
     password: string;
 }
 
-export const fetchCommentsByArticleId = createAsyncThunk<CommentType[], string | undefined, ThunkConfig<string>>(
-    'article/fetchCommentsByArticleId',
-    async (articleId, thunkAPI) => {
-        const { extra, rejectWithValue } = thunkAPI;
+export const fetchCommentsByArticleId = createAsyncThunk<
+    CommentType[],
+    string | undefined,
+    ThunkConfig<string>
+>('article/fetchCommentsByArticleId', async (articleId, thunkAPI) => {
+    const { extra, rejectWithValue } = thunkAPI;
 
-        try {
-            if (!articleId) {
-                return rejectWithValue('error');
-            }
-
-            const response = await extra.api.get<CommentType[]>('/comments', {
-                params: {
-                    articleId,
-                    _expand: 'user',
-                },
-            });
-
-            if (!response.data) {
-                throw new Error();
-            }
-
-            return response.data;
-        } catch (e) {
+    try {
+        if (!articleId) {
             return rejectWithValue('error');
         }
-    },
-);
+
+        const response = await extra.api.get<CommentType[]>('/comments', {
+            params: {
+                articleId,
+                _expand: 'user',
+            },
+        });
+
+        if (!response.data) {
+            throw new Error();
+        }
+
+        return response.data;
+    } catch (e) {
+        return rejectWithValue('error');
+    }
+});

@@ -7,26 +7,38 @@ describe('classNames', () => {
 
     test('with with additional class', () => {
         const expected = 'someClass class1 class2';
-        expect(classNames('someClass', {}, ['class1', 'class2'])).toBe(expected);
+        expect(classNames('someClass', {}, ['class1', 'class2'])).toBe(
+            expected,
+        );
     });
 
     test('with mods', () => {
         const expected = 'someClass class1 class2 hovered selected';
-        expect(classNames('someClass', { hovered: true, selected: true }, ['class1', 'class2']))
-            .toBe(expected);
+        expect(
+            classNames('someClass', { hovered: true, selected: true }, [
+                'class1',
+                'class2',
+            ]),
+        ).toBe(expected);
     });
 
     test('with mods false', () => {
         const expected = 'someClass class1 class2 hovered';
-        expect(classNames('someClass', { hovered: true, selected: false }, ['class1', 'class2']))
-            .toBe(expected);
+        expect(
+            classNames('someClass', { hovered: true, selected: false }, [
+                'class1',
+                'class2',
+            ]),
+        ).toBe(expected);
     });
 
     test('with mods undefined', () => {
         const expected = 'someClass class1 class2 hovered';
         expect(
-            classNames('someClass', { hovered: true, selected: undefined }, ['class1', 'class2']),
-        )
-            .toBe(expected);
+            classNames('someClass', { hovered: true, selected: undefined }, [
+                'class1',
+                'class2',
+            ]),
+        ).toBe(expected);
     });
 });
