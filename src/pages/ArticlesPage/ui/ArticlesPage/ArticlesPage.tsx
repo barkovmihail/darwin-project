@@ -16,7 +16,6 @@ import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPag
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
-import { useArticleItemById } from '../../model/selectors/articlesPageSelectors';
 
 interface ArticlesPageProps {
     className?: string;
