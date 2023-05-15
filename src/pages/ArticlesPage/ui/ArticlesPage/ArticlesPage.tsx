@@ -1,6 +1,4 @@
-import {
-    memo, useCallback,
-} from 'react';
+import { memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
@@ -18,6 +16,7 @@ import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPag
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
+import { useArticleItemById } from '../../model/selectors/articlesPageSelectors';
 
 interface ArticlesPageProps {
     className?: string;
@@ -28,9 +27,7 @@ const reducers: ReducerList = {
 };
 
 const ArticlesPage = (props: ArticlesPageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const dispatch = useAppDispatch();
     const [searchParams] = useSearchParams();
