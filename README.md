@@ -137,6 +137,25 @@ For asynchronous connection of reducers (so as not to pull them into a common bu
 
 ----
 
+### Working with feature-flags
+
+Allow feature flags only with toggleFeatures helper
+
+an object with options is passed to it
+
+{
+   name: feature flag name,
+   on: a function that will work after enabling the feature
+   of: function that will work after the feature is turned off
+}
+
+To automatically remove a feature, use the remove-feature.ts script,
+which takes 2 arguments
+1. The name of the feature flag to be removed
+2. Status (on\off)
+
+----
+
 ## Entities
 
 - [Article](/src/entities/Article)
@@ -152,7 +171,6 @@ For asynchronous connection of reducers (so as not to pull them into a common bu
 ## Features
 
 - [addCommentForm](/src/features/addCommentForm)
-- [articleEditForm](/src/features/articleEditForm)
 - [articleRating](/src/features/articleRating)
 - [articleRecommendationsList](/src/features/articleRecommendationsList)
 - [AuthByUsername](/src/features/AuthByUsername)
@@ -162,4 +180,3 @@ For asynchronous connection of reducers (so as not to pull them into a common bu
 - [notificationButton](/src/features/notificationButton)
 - [profileRating](/src/features/profileRating)
 - [ThemeSwitcher](/src/features/ThemeSwitcher)
-- [UI](/src/features/UI)
