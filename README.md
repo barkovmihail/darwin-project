@@ -70,7 +70,7 @@ More about tests - [testing documentation](/docs/tests.md)
 The project uses eslint to check typescript code and stylelint to check files with styles.
 
 Also for strict control of the main architectural principles
-own eslint plugin *eslint-plugin-ulbi-tv-plugin* is used,
+own eslint plugin *eslint-plugin-darwin-path* is used,
 which contains 3 rules
 1) path-checker - prohibits the use of absolute imports within one module
 2) layer-imports - checks the correct use of layers in terms of FSD
