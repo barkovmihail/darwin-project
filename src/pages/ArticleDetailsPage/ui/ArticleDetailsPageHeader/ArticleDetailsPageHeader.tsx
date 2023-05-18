@@ -12,8 +12,6 @@ import {
     getRouteArticleEdit,
     getRouteArticles,
 } from '../../../../shared/const/router';
-import {toggleFeatures} from "../../../../shared/lib/features";
-import {Counter, Counter as CounterRedisinged} from "../../../../entities/Counter";
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;

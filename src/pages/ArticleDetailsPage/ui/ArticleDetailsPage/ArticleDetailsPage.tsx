@@ -21,8 +21,6 @@ import {
     getFeatureFlag,
     toggleFeatures,
 } from '../../../../shared/lib/features';
-import { Counter } from '../../../../entities/Counter';
-import { Counter as CounterRedisinged } from '../../../../entities/Counter';
 import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
