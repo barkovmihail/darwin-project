@@ -21,7 +21,7 @@ export const saveJsonSettings = createAsyncThunk<
     const currentSettings = getJsonSettings(getState());
 
     if (!userData) {
-        return rejectWithValue('error');
+        return rejectWithValue('');
     }
 
     try {
@@ -36,12 +36,12 @@ export const saveJsonSettings = createAsyncThunk<
         ).unwrap();
 
         if (!response.jsonSettings) {
-            return rejectWithValue('error');
+            return rejectWithValue('');
         }
 
         return response.jsonSettings;
     } catch (e) {
         console.log(e);
-        return rejectWithValue('error');
+        return rejectWithValue('');
     }
 });
