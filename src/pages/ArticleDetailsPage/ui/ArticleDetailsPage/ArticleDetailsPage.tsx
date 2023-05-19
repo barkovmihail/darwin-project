@@ -19,6 +19,7 @@ import { ArticleRating } from '../../../../features/articleRating';
 import { getRouteArticles } from '../../../../shared/const/router';
 import {
     getFeatureFlag,
+    ToggleFeatures,
     toggleFeatures,
 } from '../../../../shared/lib/features';
 import { Card } from '@/shared/ui/Card';
@@ -51,12 +52,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         return null;
     }
 
-    const articleRating = toggleFeatures({
-        name: 'isArticleRatingEnabled',
-        on: () => <ArticleRating articleId={id} />,
-        off: () => <Card>Карточка скоро появиться</Card>,
-    });
-
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page
@@ -65,7 +60,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 <VStack gap={16} max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    {articleRating}
+                    <ToggleFeatures
+                        feature={'isArticleRatingEnabled'}
+                        on={<ArticleRating articleId={id} />}
+                        off={<Card>Карточка скоро появиться</Card>}
+                    />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>
