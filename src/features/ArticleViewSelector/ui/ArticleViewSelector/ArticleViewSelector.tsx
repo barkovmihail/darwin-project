@@ -27,11 +27,7 @@ const viewTypes = [
 export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
     const { t } = useTranslation();
 
-    const {
-        className,
-        view,
-        onViewClick,
-    } = props;
+    const { className, view, onViewClick } = props;
 
     const onClick = (newView: ArticleView) => () => {
         onViewClick?.(newView);
@@ -46,8 +42,14 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
                     onClick={onClick(viewType.view)}
                 >
                     <Icon
+                        width={'24px'}
+                        height={'24px'}
                         Svg={viewType.icon}
-                        className={classNames('', { [cls.notSelected]: viewType.view !== view }, [])}
+                        className={classNames(
+                            '',
+                            { [cls.notSelected]: viewType.view !== view },
+                            [],
+                        )}
                     />
                 </Button>
             ))}
