@@ -3,17 +3,17 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Card } from '@/shared/ui/Card';
-import { Input } from '@/shared/ui/Input';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Input } from '@/shared/ui/deprecated/Input';
 import { SortOrder } from '@/shared/types/sort';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import cls from './ArticlesPageFilters.module.scss';
-import {
-    ArticleSortField, ArticleType, ArticleView,
-} from '@/entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import {
     getArticlesPageOrder,
-    getArticlesPageSearch, getArticlesPageSort, getArticlesPageType,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { articlePageActions } from '../../model/slices/articlePageSlice';
@@ -27,9 +27,7 @@ interface ArticlesPageFiltersProps {
 }
 
 export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
@@ -46,35 +44,50 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     const debouncedFetchData = useDebounce(ferchData, 500);
 
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlePageActions.setView(view));
-        dispatch(articlePageActions.setPage(1));
-        debouncedFetchData();
-    }, [debouncedFetchData, dispatch]);
+    const onChangeView = useCallback(
+        (view: ArticleView) => {
+            dispatch(articlePageActions.setView(view));
+            dispatch(articlePageActions.setPage(1));
+            debouncedFetchData();
+        },
+        [debouncedFetchData, dispatch],
+    );
 
-    const onChangeOrder = useCallback((order: SortOrder) => {
-        dispatch(articlePageActions.setOrder(order));
-        dispatch(articlePageActions.setPage(1));
-        debouncedFetchData();
-    }, [debouncedFetchData, dispatch]);
+    const onChangeOrder = useCallback(
+        (order: SortOrder) => {
+            dispatch(articlePageActions.setOrder(order));
+            dispatch(articlePageActions.setPage(1));
+            debouncedFetchData();
+        },
+        [debouncedFetchData, dispatch],
+    );
 
-    const onChangeSort = useCallback((sort: ArticleSortField) => {
-        dispatch(articlePageActions.setSort(sort));
-        dispatch(articlePageActions.setPage(1));
-        debouncedFetchData();
-    }, [debouncedFetchData, dispatch]);
+    const onChangeSort = useCallback(
+        (sort: ArticleSortField) => {
+            dispatch(articlePageActions.setSort(sort));
+            dispatch(articlePageActions.setPage(1));
+            debouncedFetchData();
+        },
+        [debouncedFetchData, dispatch],
+    );
 
-    const onChangeSearch = useCallback((value: string) => {
-        dispatch(articlePageActions.setSearch(value));
-        dispatch(articlePageActions.setPage(1));
-        debouncedFetchData();
-    }, [debouncedFetchData, dispatch]);
+    const onChangeSearch = useCallback(
+        (value: string) => {
+            dispatch(articlePageActions.setSearch(value));
+            dispatch(articlePageActions.setPage(1));
+            debouncedFetchData();
+        },
+        [debouncedFetchData, dispatch],
+    );
 
-    const onChangeType = useCallback((type: ArticleType) => {
-        dispatch(articlePageActions.setType(type));
-        dispatch(articlePageActions.setPage(1));
-        ferchData();
-    }, [ferchData, dispatch]);
+    const onChangeType = useCallback(
+        (type: ArticleType) => {
+            dispatch(articlePageActions.setType(type));
+            dispatch(articlePageActions.setPage(1));
+            ferchData();
+        },
+        [ferchData, dispatch],
+    );
 
     return (
         <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
@@ -88,7 +101,11 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
             </div>
             <Card className={cls.search}>
-                <Input value={search} placeholder={t('Поиск')} onChange={onChangeSearch} />
+                <Input
+                    value={search}
+                    placeholder={t('Поиск')}
+                    onChange={onChangeSearch}
+                />
             </Card>
             <ArticleTypeTabs
                 className={classNames(cls.tabs, {}, [])}

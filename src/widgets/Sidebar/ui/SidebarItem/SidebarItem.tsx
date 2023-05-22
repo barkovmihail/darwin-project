@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
 
 import { useSelector } from 'react-redux';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from '../../model/types/sidebar';
@@ -16,10 +16,7 @@ interface SidebarItemProps {
 export const SidebarItem = memo((props: SidebarItemProps) => {
     const { t } = useTranslation();
 
-    const {
-        item,
-        collapsed,
-    } = props;
+    const { item, collapsed } = props;
 
     const isAuth = useSelector(getUserAuthData);
 
@@ -34,10 +31,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
             theme={AppLinkTheme.INVERTED}
         >
             <item.Icon className={cls.icon} />
-            <span className={cls.link}>
-                {t(item.text)}
-            </span>
-
+            <span className={cls.link}>{t(item.text)}</span>
         </AppLink>
     );
 });

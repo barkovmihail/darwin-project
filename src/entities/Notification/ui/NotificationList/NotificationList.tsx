@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/Stack';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { NotificationItem } from '../../ui/NotificationItem/NotificationItem';
 import { useNotifications } from '../../api/notificationApi';
 import cls from './NotificationList.module.scss';
@@ -12,9 +12,7 @@ interface NotificationListProps {
 }
 
 export const NotificationList = memo((props: NotificationListProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const { t } = useTranslation();
 
@@ -42,7 +40,9 @@ export const NotificationList = memo((props: NotificationListProps) => {
             max
             className={classNames(cls.NotificationList, {}, [className])}
         >
-            {notifications?.map((item) => (<NotificationItem key={item.id} item={item} />))}
+            {notifications?.map((item) => (
+                <NotificationItem key={item.id} item={item} />
+            ))}
         </VStack>
     );
 });
