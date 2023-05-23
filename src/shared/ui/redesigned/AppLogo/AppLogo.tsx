@@ -7,14 +7,11 @@ import AppSvg from '@/shared/assets/icons/logo.svg';
 
 interface AppLogoProps {
     className?: string;
+    size?: number;
 }
 
-/**
- * Компонент устарел, используйте новые компоненты из папки redesigned
- * @deprecated
- */
 export const AppLogo = memo((props: AppLogoProps) => {
-    const { className } = props;
+    const { className, size } = props;
 
     const { t } = useTranslation();
 
@@ -26,7 +23,12 @@ export const AppLogo = memo((props: AppLogoProps) => {
         >
             <div className={cls.gradientBig}></div>
             <div className={cls.gradientSmall}></div>
-            <AppSvg className={cls.appLogo} />
+            <AppSvg
+                width={size}
+                height={size}
+                color={'black'}
+                className={cls.appLogo}
+            />
         </HStack>
     );
 });
