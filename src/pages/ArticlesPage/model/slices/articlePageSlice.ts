@@ -3,17 +3,17 @@ import {
     createSlice,
     PayloadAction,
 } from '@reduxjs/toolkit';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import {
     Article,
-    ArticleSortField,
     ArticleType,
     ArticleView,
+    ArticleSortField,
 } from '@/entities/Article';
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { SortOrder } from '@/shared/types/sort';
-import { ArticlePageSchema } from '../types/articlePageSchema';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { ArticlePageSchema } from '../..';
 
 const articlesAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
@@ -23,8 +23,8 @@ export const getArticles = articlesAdapter.getSelectors<StateSchema>(
     (state) => state.articlesPage || articlesAdapter.getInitialState(),
 );
 
-const articlePageSlice = createSlice({
-    name: 'articlePageSlice',
+const articlesPageSlice = createSlice({
+    name: 'articlesPageSlice',
     initialState: articlesAdapter.getInitialState<ArticlePageSchema>({
         isLoading: false,
         error: undefined,
@@ -34,10 +34,10 @@ const articlePageSlice = createSlice({
         page: 1,
         hasMore: true,
         _inited: false,
+        limit: 9,
         sort: ArticleSortField.CREATED,
         search: '',
         order: 'asc',
-        limit: 4,
         type: ArticleType.ALL,
     }),
     reducers: {
@@ -57,11 +57,11 @@ const articlePageSlice = createSlice({
         setSort: (state, action: PayloadAction<ArticleSortField>) => {
             state.sort = action.payload;
         },
-        setSearch: (state, action: PayloadAction<string>) => {
-            state.search = action.payload;
-        },
         setType: (state, action: PayloadAction<ArticleType>) => {
             state.type = action.payload;
+        },
+        setSearch: (state, action: PayloadAction<string>) => {
+            state.search = action.payload;
         },
         initState: (state) => {
             const view = localStorage.getItem(
@@ -84,7 +84,6 @@ const articlePageSlice = createSlice({
             })
             .addCase(fetchArticlesList.fulfilled, (state, action) => {
                 state.isLoading = false;
-
                 state.hasMore = action.payload.length >= state.limit;
 
                 if (action.meta.arg.replace) {
@@ -100,5 +99,5 @@ const articlePageSlice = createSlice({
     },
 });
 
-export const { reducer: articlePageReducer } = articlePageSlice;
-export const { actions: articlePageActions } = articlePageSlice;
+export const { reducer: articlesPageReducer, actions: articlesPageActions } =
+    articlesPageSlice;

@@ -11,7 +11,7 @@ import { getScrollRestorationByPath } from '../../ui/ScrollRestoration/model/sel
 import { scrollRestorationActions } from '../../ui/ScrollRestoration/model/slices/scrollRestorationSlice';
 import cls from './Page.module.scss';
 import { TestProps } from '@/shared/types/tests';
-import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
     className?: string;
@@ -33,7 +33,7 @@ export const Page = memo((props: PageProps) => {
 
     useInfinityScroll({
         triggerRef,
-        wrapperRef,
+        wrapperRef: undefined,
         callback: onScrollEnd,
     });
 
