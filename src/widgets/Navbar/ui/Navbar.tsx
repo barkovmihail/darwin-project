@@ -38,7 +38,7 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
     if (authData) {
         return (
             <ToggleFeatures
-                feature={'isAppRedesigned'}
+                feature="isAppRedesigned"
                 on={
                     <header
                         className={classNames(cls.navbarRedesigned, {}, [

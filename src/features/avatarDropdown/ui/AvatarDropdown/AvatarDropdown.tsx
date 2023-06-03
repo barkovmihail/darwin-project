@@ -59,7 +59,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
     return (
         <ToggleFeatures
-            feature={'isAppRedesigned'}
+            feature="isAppRedesigned"
             on={
                 <Dropdown
                     className={classNames('', {}, [className])}

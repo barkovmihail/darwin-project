@@ -25,7 +25,7 @@ function App() {
 
     return (
         <ToggleFeatures
-            feature={'isAppRedesigned'}
+            feature="isAppRedesigned"
             on={
                 <div className={classNames('app_redesigned', {}, [])}>
                     <Suspense fallback="">

@@ -21,10 +21,10 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
 
     const content = (
         <ToggleFeatures
-            feature={'isAppRedesigned'}
+            feature="isAppRedesigned"
             on={
                 <Card
-                    variant={'outlined'}
+                    variant="outlined"
                     className={classNames(cls.NotificationItem, {}, [
                         className,
                     ])}

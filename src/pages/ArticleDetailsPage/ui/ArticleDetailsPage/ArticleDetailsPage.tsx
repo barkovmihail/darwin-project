@@ -20,7 +20,6 @@ import { getRouteArticles } from '../../../../shared/const/router';
 import {
     getFeatureFlag,
     ToggleFeatures,
-    toggleFeatures,
 } from '../../../../shared/lib/features';
 import { Card } from '@/shared/ui/deprecated/Card';
 
@@ -61,7 +60,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     <ToggleFeatures
-                        feature={'isArticleRatingEnabled'}
+                        feature="isArticleRatingEnabled"
                         on={<ArticleRating articleId={id} />}
                         off={<Card>Карточка скоро появиться</Card>}
                     />

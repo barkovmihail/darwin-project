@@ -1,7 +1,7 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import cls from './MainLayout.module.scss';
 import { memo, ReactElement } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import cls from './MainLayout.module.scss';
 
 interface MainLayoutProps {
     className?: string;

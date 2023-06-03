@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
 export type TextVariant = 'primary' | 'accent' | 'error';
@@ -17,9 +17,9 @@ const mapSizeToClass: Record<TextSize, string> = {
 };
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
-    ['s']: 'h3',
-    ['m']: 'h2',
-    ['l']: 'h1',
+    's': 'h3',
+    'm': 'h2',
+    'l': 'h1',
 };
 
 interface TextProps {
