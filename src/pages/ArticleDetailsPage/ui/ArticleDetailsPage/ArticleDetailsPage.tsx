@@ -12,7 +12,7 @@ import { getAddCommentFormText } from '../../../../features/addCommentForm/model
 import { Page } from '../../../../widgets/Page/ui/Page/Page';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { VStack } from '../../../../shared/ui/deprecated/Stack';
+import { VStack } from '../../../../shared/ui/redesigned/Stack';
 import { ArticleRecommendationsList } from '../../../../features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '../../../../features/articleRating';

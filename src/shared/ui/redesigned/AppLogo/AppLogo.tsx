@@ -2,7 +2,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import cls from './AppLogo.module.scss';
 import { memo } from 'react';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import AppSvg from '@/shared/assets/icons/logo.svg';
 
 interface AppLogoProps {

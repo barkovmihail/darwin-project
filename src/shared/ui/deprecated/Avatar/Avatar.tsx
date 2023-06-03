@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { CSSProperties, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
-import { AppImage } from '../AppImage';
+import { AppImage } from '../../redesigned/AppImage';
 import UserIcon from '../../../assets/icons/avatar-20-20.svg';
 import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
