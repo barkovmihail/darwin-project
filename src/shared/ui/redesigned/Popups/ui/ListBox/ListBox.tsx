@@ -8,7 +8,7 @@ import { classNames } from '../../../../../lib/classNames/classNames';
 import { Button } from '../../../Button/Button';
 import popupCls from '../../styles/popups.module.scss';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
-import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Icon } from '../../../Icon';
 
 export interface ListBoxItem<T extends string> {
     value: string;
@@ -47,7 +47,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
 
     return (
         <HStack gap={4}>
-            {label && <span className={cls.label}>{`${label}>`}</span>}
+            {label && <span className={cls.label}>{`${label}`}</span>}
             <HListBox
                 as="div"
                 className={classNames(cls.ListBox, {}, [
