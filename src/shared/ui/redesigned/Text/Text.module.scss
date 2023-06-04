@@ -67,3 +67,10 @@
         font: var(--font-l-redesinged);
     }
 }
+
+.bold {
+    .title,
+    .text {
+        font-weight: 700;
+    }
+}

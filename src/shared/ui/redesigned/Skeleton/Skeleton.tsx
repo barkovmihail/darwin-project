@@ -10,10 +10,6 @@ interface SkeletonProps {
     border?: string;
 }
 
-/**
- * Компонент устарел, используйте новые компоненты из папки redesigned
- * @deprecated
- */
 export const Skeleton = memo((props: SkeletonProps) => {
     const { t } = useTranslation();
 

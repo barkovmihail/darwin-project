@@ -15,8 +15,8 @@ export const ProfileCardRedesignedSkeleton = () => {
     return (
         <Card padding="24" max>
             <VStack gap={32}>
-                <HStack max justify={'center'}>
-                    <Skeleton border={'100%'} width={128} height={128} />
+                <HStack max justify="center">
+                    <Skeleton border="100%" width={128} height={128} />
                 </HStack>
                 <HStack gap={32} max>
                     <VStack gap={16} max>
