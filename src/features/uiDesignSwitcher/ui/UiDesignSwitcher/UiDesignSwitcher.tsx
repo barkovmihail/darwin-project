@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { getFeatureFlag, updateFeatureFlag } from '@/shared/lib/features';
