@@ -85,7 +85,6 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                                         [popupCls.selected]: selected,
                                     })}
                                 >
-                                    {selected && '*'}
                                     {item.content}
                                 </li>
                             )}
