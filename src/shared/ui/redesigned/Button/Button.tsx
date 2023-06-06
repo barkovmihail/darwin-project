@@ -3,6 +3,7 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export type ButtonVariant = 'unstyled' | 'outline' | 'filled';
+export type ButtonColor = 'normal' | 'success' | 'error';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 
@@ -12,6 +13,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      * Тема кнопки. Отвечает за визуал (в рамке, без стилей, противоположный теме приложения цвет и тд)
      */
     variant?: ButtonVariant;
+
+    color?: ButtonColor;
     /**
      * Флаг, делающий кнопку квадратной
      */
@@ -41,6 +44,7 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
         className,
         children,
         variant = 'outline',
+        color = 'normal',
         square,
         size = 'm',
         disabled,
@@ -64,6 +68,7 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
                 className,
                 cls[variant],
                 cls[size],
+                cls[color],
             ])}
             disabled={disabled}
             {...otherProps}

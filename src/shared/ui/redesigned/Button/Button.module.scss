@@ -37,10 +37,24 @@
 }
 
 .outline {
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
     border-radius: 34px;
     background: none;
+
+    &:hover {
+        border: 2px solid var(--accent-redesigned)
+    }
+
+    &.normal {
+        border: 2px solid var(--icon-redesigned);
+    }
+
+    &.success {
+        border: 2px solid var(--save-redesigned);
+    }
+
+    &.error {
+        border: 2px solid var(--cancel-redesigned);
+    }
 }
 
 .filled {
