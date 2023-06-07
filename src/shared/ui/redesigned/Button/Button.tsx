@@ -1,4 +1,9 @@
-import React, { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
+import {
+    ButtonHTMLAttributes,
+    ForwardedRef,
+    forwardRef,
+    ReactNode,
+} from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -13,8 +18,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      * Тема кнопки. Отвечает за визуал (в рамке, без стилей, противоположный теме приложения цвет и тд)
      */
     variant?: ButtonVariant;
-
-    color?: ButtonColor;
     /**
      * Флаг, делающий кнопку квадратной
      */
@@ -26,7 +29,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * Флаг, отвечающий за работу кнопки
      */
-    disabled?: boolean;
+    disabled?: boolean | undefined;
     /**
      * Содержимое кнопки
      */
@@ -35,47 +38,53 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      * Увеличивает кнопку на всю свободную ширину
      */
     fullWidth?: boolean;
+
+    color?: ButtonColor;
+
     addonLeft?: ReactNode;
     addonRight?: ReactNode;
 }
 
-export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
-    const {
-        className,
-        children,
-        variant = 'outline',
-        color = 'normal',
-        square,
-        size = 'm',
-        disabled,
-        fullWidth,
-        addonLeft,
-        addonRight,
-        ...otherProps
-    } = props;
+export const Button = forwardRef(
+    (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+        const {
+            className,
+            children,
+            variant = 'outline',
+            square,
+            disabled,
+            fullWidth,
+            size = 'm',
+            addonLeft,
+            addonRight,
+            color = 'normal',
+            ...otherProps
+        } = props;
 
-    const mods: Mods = {
-        [cls.square]: square,
-        [cls.disabled]: disabled,
-        [cls.fullWidth]: fullWidth,
-        [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
-    };
+        const mods: Mods = {
+            [cls.square]: square,
+            [cls.disabled]: disabled,
+            [cls.fullWidth]: fullWidth,
+            [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
+        };
 
-    return (
-        <button
-            type="button"
-            className={classNames(cls.button, mods, [
-                className,
-                cls[variant],
-                cls[size],
-                cls[color],
-            ])}
-            disabled={disabled}
-            {...otherProps}
-        >
-            <div className={cls.addonLeft}>{addonLeft}</div>
-            {children}
-            <div className={cls.addonRight}>{addonRight}</div>
-        </button>
-    );
-});
+        return (
+            <button
+                type="button"
+                className={classNames(cls.button, mods, [
+                    className,
+                    cls[variant],
+                    cls[size],
+                    cls[color],
+                ])}
+                disabled={disabled}
+                {...otherProps}
+                ref={ref}
+            >
+                <div className={cls.addonLeft}>{addonLeft}</div>
+                {children}
+                <div className={cls.addonRight}>{addonRight}</div>
+            </button>
+        );
+    },
+);
