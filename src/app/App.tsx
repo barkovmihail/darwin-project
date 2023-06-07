@@ -10,11 +10,16 @@ import { PageLoader } from '../widgets/PageLoader';
 import { ToggleFeatures } from '../shared/lib/features';
 import { MainLayout } from '../shared/layouts/MainLayout/MainLayout';
 import { AppLoaderLayout } from '../shared/layouts/AppLoaderLayout';
+import { ScrollToTopButton } from '../features/scrollToTopButton';
+import { ScrollToolbar } from '../widgets/ScrollToolbar';
+import { useAppToolbar } from './lib/useAppToolbar';
 
 function App() {
     const dispatch = useAppDispatch();
 
     const inited = useSelector(getUserInited);
+
+    const toolbar = useAppToolbar();
 
     useEffect(() => {
         dispatch(initAuthData());
@@ -47,7 +52,7 @@ function App() {
                             header={<Navbar />}
                             content={<AppRouter />}
                             sidebar={<Sidebar />}
-                            toolbar={<div>fdsfd</div>}
+                            toolbar={toolbar}
                         />
                     </Suspense>
                 </div>
