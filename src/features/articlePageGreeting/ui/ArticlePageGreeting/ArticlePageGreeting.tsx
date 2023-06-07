@@ -7,11 +7,7 @@ import { saveJsonSettings, useJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Drawer } from '@/shared/ui/redesigned/Drawer';
 
-interface ArticlePageGreetingProps {
-    className?: string;
-}
-
-export const ArticlePageGreeting = memo((props: ArticlePageGreetingProps) => {
+export const ArticlePageGreeting = memo(() => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 

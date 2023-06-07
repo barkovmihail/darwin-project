@@ -1,10 +1,9 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 import { ProfileCard } from './ProfileCard';
-import { Country } from '../../../Country';
-import { Currency } from '../../../Currency';
-import AvatarImg from '@/shared/assets/tests/avatar.png';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 
 export default {
     title: 'entities/ProfileCard',
@@ -14,28 +13,35 @@ export default {
     },
 } as ComponentMeta<typeof ProfileCard>;
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+const Template: ComponentStory<typeof ProfileCard> = (args) => (
+    <ProfileCard {...args} />
+);
 
-export const Primary = Template.bind({});
-Primary.args = {
+const primaryArgs = {
     data: {
         username: 'admin',
-        age: 34,
-        country: Country.Russia,
-        lastname: 'Barkov',
-        first: 'Mikhail',
-        currency: Currency.RUB,
-        city: 'Izhevsk',
-        avatar: AvatarImg,
+        age: 22,
+        country: Country.USA,
+        lastname: 'barkov',
+        first: 'asd',
+        city: 'asf',
+        currency: Currency.USD,
     },
 };
+
+export const Primary = Template.bind({});
+Primary.args = primaryArgs;
+
+export const PrimaryRedesigned = Template.bind({});
+PrimaryRedesigned.args = primaryArgs;
+PrimaryRedesigned.decorators = [NewDesignDecorator];
 
 export const withError = Template.bind({});
 withError.args = {
     error: 'true',
 };
 
-export const loading = Template.bind({});
-loading.args = {
+export const Loading = Template.bind({});
+Loading.args = {
     isLoading: true,
 };

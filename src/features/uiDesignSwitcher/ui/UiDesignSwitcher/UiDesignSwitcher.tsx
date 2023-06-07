@@ -34,20 +34,23 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
         },
     ];
 
-    const onChange = useCallback(async (value: string) => {
-        if (authData) {
-            setIsLoading(true);
-            await dispatch(
-                updateFeatureFlag({
-                    userId: authData.id,
-                    newFeatures: {
-                        isAppRedesigned: value === 'new',
-                    },
-                }),
-            ).unwrap();
-            setIsLoading(false);
-        }
-    }, []);
+    const onChange = useCallback(
+        async (value: string) => {
+            if (authData) {
+                setIsLoading(true);
+                await dispatch(
+                    updateFeatureFlag({
+                        userId: authData.id,
+                        newFeatures: {
+                            isAppRedesigned: value === 'new',
+                        },
+                    }),
+                ).unwrap();
+                setIsLoading(false);
+            }
+        },
+        [authData, dispatch],
+    );
 
     return (
         <HStack>

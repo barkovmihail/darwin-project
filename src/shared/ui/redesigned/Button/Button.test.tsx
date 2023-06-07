@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Button, ButtonTheme } from './Button';
+import { Button } from './Button';
 
 describe('  Button', () => {
     test('exist button', () => {
@@ -8,7 +8,7 @@ describe('  Button', () => {
     });
 
     test('exist button with class ', () => {
-        render(<Button theme={ButtonTheme.UNSTYLED}>Test</Button>);
+        render(<Button variant={'unstyled'}>Test</Button>);
         expect(screen.getByText('Test')).toHaveClass('unstyled');
         screen.debug();
     });

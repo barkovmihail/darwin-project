@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleDetails } from '@/entities/Article';
 import {
@@ -36,6 +37,8 @@ const reducers: ReducerList = {
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
+
+    const { t } = useTranslation();
 
     const { id } = useParams<{ id: string }>();
 
@@ -91,7 +94,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                             <ToggleFeatures
                                 feature="isArticleRatingEnabled"
                                 on={<ArticleRating articleId={id} />}
-                                off={<Card>Карточка скоро появиться</Card>}
+                                off={
+                                    <Card>{t('Карточка скоро появиться')}</Card>
+                                }
                             />
                             <ArticleRecommendationsList />
                             <ArticleDetailsComments id={id} />

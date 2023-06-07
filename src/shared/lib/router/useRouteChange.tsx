@@ -1,6 +1,6 @@
 import { matchPath, useLocation } from 'react-router-dom';
-import { AppRouteByPathPattern, AppRoutes } from '../../const/router';
 import { useEffect, useState } from 'react';
+import { AppRouteByPathPattern, AppRoutes } from '../../const/router';
 
 export function useRouteChange() {
     const location = useLocation();
@@ -12,7 +12,7 @@ export function useRouteChange() {
                 setAppRoute(route);
             }
         });
-    }, []);
+    }, [location.pathname]);
 
     return appRoute;
 }

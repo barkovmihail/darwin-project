@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { CSSProperties, memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './Skeleton.module.scss';
 
 interface SkeletonProps {
     className?: string;
@@ -21,10 +20,5 @@ export const Skeleton = memo((props: SkeletonProps) => {
         borderRadius: border,
     };
 
-    return (
-        <div
-            className={classNames(cls.Skeleton, {}, [className])}
-            style={styles}
-        />
-    );
+    return <div className={classNames('', {}, [className])} style={styles} />;
 });

@@ -84,11 +84,11 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
     return (
         <header className={classNames(mainClass, {}, [className])}>
             <ToggleFeatures
-                feature={'isAppRedesigned'}
+                feature="isAppRedesigned"
                 on={
                     <Button
                         className={cls.links}
-                        variant={'unstyled'}
+                        variant="unstyled"
                         onClick={onShowModel}
                     >
                         {t('Войти')}

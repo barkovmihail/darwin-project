@@ -25,7 +25,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
         toggleTheme((newTheme) => {
             dispatch(saveJsonSettings({ theme: newTheme }));
         });
-    }, [toggleTheme, saveJsonSettings]);
+    }, [toggleTheme, dispatch]);
 
     return (
         <ToggleFeatures
