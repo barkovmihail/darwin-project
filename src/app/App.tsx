@@ -9,6 +9,7 @@ import { useAppDispatch } from '../shared/lib/hooks/useAppDispatch/useAppDispatc
 import { PageLoader } from '../widgets/PageLoader';
 import { ToggleFeatures } from '../shared/lib/features';
 import { MainLayout } from '../shared/layouts/MainLayout/MainLayout';
+import { AppLoaderLayout } from '../shared/layouts/AppLoaderLayout';
 
 function App() {
     const dispatch = useAppDispatch();
@@ -20,17 +21,27 @@ function App() {
     }, [dispatch]);
 
     if (!inited) {
-        return <PageLoader />;
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <div
+                        id="app"
+                        className={classNames('app_redesigned', {}, [])}
+                    >
+                        <AppLoaderLayout />
+                    </div>
+                }
+                off={<PageLoader />}
+            />
+        );
     }
 
     return (
         <ToggleFeatures
             feature="isAppRedesigned"
             on={
-                <div
-                    id="app"
-                    className={classNames('app_redesigned', {}, [])}
-                >
+                <div id="app" className={classNames('app_redesigned', {}, [])}>
                     <Suspense fallback="">
                         <MainLayout
                             header={<Navbar />}
