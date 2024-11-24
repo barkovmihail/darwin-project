@@ -20,8 +20,12 @@ import {
     getRouteProfile,
     getRouteSettings,
 } from '@/shared/const/router';
-import { AppRoutesProps } from '@/shared/types/router';
+import { AppRoutesProps as BaseAppRoutesProps } from '@/shared/types/router';
 import { SettingsPage } from '@/pages/SettingsPage';
+
+export type AppRoutesProps = BaseAppRoutesProps & {
+    authOnly?: boolean;
+};
 
 export const routeConfig: AppRoutesProps[] = [
     {
